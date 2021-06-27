@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP & </title>
+<style>
+.slidecontainer {
+  width: 50%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #e09e9e;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4e0a0d;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #49080d;
+  cursor: pointer;
+}
+
+.button {
+  border: none;
+  color: #49080d;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  background: #e09e9e;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.cm-toggle {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	margin: 10px;
+}
+
+
+/* To create surface of toggle button */
+.cm-toggle:after {
+	content: '';
+	width: 60px;
+	height: 28px;
+	display: inline-block;
+	background: rgba(196, 195, 195, 0.55);
+	border-radius: 18px;
+	clear: both;
+}
+
+
+/* Contents before checkbox to create toggle handle */
+.cm-toggle:before {
+	content: '';
+	width: 32px;
+	height: 32px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -3px;
+	border-radius: 50%;
+	background: rgb(255, 255, 255);
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Shift the handle to left on check event */
+.cm-toggle:checked:before {
+	left: 32px;
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+/* Background color when toggle button will be active */
+.cm-toggle:checked:after {
+	background: #16a085;
+}
+
+/* Transition for smoothness */
+.cm-toggle,
+.cm-toggle:before,
+.cm-toggle:after,
+.cm-toggle:checked:before,
+.cm-toggle:checked:after {
+	transition: ease .3s;
+	-webkit-transition: ease .3s;
+	-moz-transition: ease .3s;
+	-o-transition: ease .3s;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Robot Arm Task 1 </h1>
+<form name="frmContact" method="post" action="motors.php">
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m1" id="m1" >
+  <p>Motor 1: <span id="demo1"></span></p>
+</div>
+
+
+<script>
+var slider1 = document.getElementById("m1");
+var output1 = document.getElementById("demo1");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+
+</script>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m2" id="m2" >
+  <p>Motor 2: <span id="demo2"></span></p>
+</div>
+
+
+<script>
+var slider2 = document.getElementById("m2");
+var output2 = document.getElementById("demo2");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+
+</script>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m3" id="m3" >
+  <p>Motor 3: <span id="demo3"></span></p>
+</div>
+
+
+<script>
+var slider3 = document.getElementById("m3");
+var output3 = document.getElementById("demo3");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+
+</script>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m4" id="m4" >
+  <p>Motor 4: <span id="demo4"></span></p>
+</div>
+
+
+<script>
+var slider4 = document.getElementById("m4");
+var output4 = document.getElementById("demo4");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+
+</script>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m5" id="m5" >
+  <p>Motor 5: <span id="demo5"></span></p>
+</div>
+
+
+<script>
+var slider5 = document.getElementById("m5");
+var output5 = document.getElementById("demo5");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value;
+}
+
+</script>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="180" value=50 step="1" class="slider" name="m6" id="m6" >
+  <p>Motor 6: <span id="demo6"></span></p>
+</div>
+
+
+<script>
+var slider6 = document.getElementById("m6");
+var output6 = document.getElementById("demo6");
+output6.innerHTML = slider6.value;
+
+slider6.oninput = function() {
+  output6.innerHTML = this.value;
+}
+
+</script>
+
+
+<!-- <input class="button" type="button" value="off" name="btnvalue" id="btnvalue"
+value="off" onclick="myFunction()" 
+></button> -->
+
+
+<form action="motors.php" method="post">
+  
+  <input class="cm-toggle" type="checkbox" name="btnvalue" id="">
+  <input class="button" type="submit" name="Submit" id="Submit" value="Submit">
+</form>
+
+<!-- <script>
+  $(function () {
+    $('input[name="toggle"]').change(function () {
+        $("a.toggler").toggleClass("off", this.checked)
+    }).change();
+})
+</script> -->
+<!-- <script>
+  function myFunction() {
+    //document.getElementById("oration").style.color = "green";
+  
+    //#49080d;
+    if ( document.getElementById("btnvalue").value == "off" ) {
+        document.getElementById("btnvalue").style.backgroundColor = "green";
+        document.getElementById("btnvalue").value = "on";
+    } else {
+        document.getElementById("btnvalue").style.backgroundColor = "#e09e9e";
+        document.getElementById("btnvalue").value = "off";
+    }
+   
+  }
+  </script> -->
+
+<!-- 
+<input  class="button" type="submit" name="Submit" id="Submit" value="Submit"> -->
+
+</form>
+
+</body>
+</html>
