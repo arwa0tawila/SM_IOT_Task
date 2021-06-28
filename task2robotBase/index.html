@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP & </title>
+<style>
+
+.previous {
+  background-color: #e6cece;
+  color: rgb(71, 15, 29);
+}
+
+.round {
+  border-radius: 30%;
+}
+
+body {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+                font-size: 10pt;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+          
+            button {
+                all: unset;
+                background-color: #a55;
+                padding: 1rem;
+                min-width: 80px;
+                margin: 0.3rem;
+                border-radius: 0.3rem;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: rgb(151, 77, 77);
+            }
+
+</style>
+</head>
+<body>
+
+  <form action="base.php" method="post">
+  <div id="div1" style="text-align:center;width:980px;">
+
+    <input id="idup" type="hidden" name="form-product1" value="UP"/>
+    <button id="idup1" name= "form-submit1"  class="previous round">UP</button><br id="log"><br>
+
+    <input type="hidden" name="form-product2" value="LEFT"/>
+    <button id="idleft1" name="form-submit2" class="previous round" >LEFT</button>
+    
+    <input type="hidden" name="form-product3" value="STOP"/>
+    <button name="form-submit3" class="previous round" >STOP</button>
+
+    <input type="hidden" name="form-product4" value="RIGHT"/>
+    <button name="form-submit4" class="previous round" >RIGHT</button><br><br>
+
+    <input type="hidden" name="form-product5" value="DOWN"/>
+    <button name="form-submit5" class="previous round">DOWN</button>
+
+  </div>
+
+</form>
+
+<script>
+document.forms[0].addEventListener('submit', e => {
+  e.preventDefault();
+});
+document.querySelectorAll('[name^="form-submit"]').forEach(btns => {
+    btns.addEventListener("click", function(){
+        const btn_num = btns.getAttribute("name").match(/\d$/)
+        fetch("base.php", 
+        {method: "POST", 
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {"value": document.querySelector(`[name="form-product${btn_num}"]`).value.toLocaleLowerCase()}
+            )
+        }).then(e => e.text()).then(text => console.log(text))
+        
+    })
+
+})
+
+console.log()
+
+</script>
+
+</body>
+</html>
